@@ -3,6 +3,7 @@ package com.sync.demo.serviceImpl;
 import com.sync.demo.entity.Employee;
 import com.sync.demo.repository.DemoRepository;
 import com.sync.demo.service.DemoService;
+import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 /**
  *
  */
+@Slf4j
 @Service
 public class DemoServiceImpl implements DemoService {
 
@@ -43,24 +45,30 @@ public class DemoServiceImpl implements DemoService {
      */
     @Override
     public List<Employee> fetchEmployeeList() {
-        List<Long> employeeIds = demoRepository.findAll()
-                .stream()
-                .map(Employee::getEmployeeId)
-                .toList();
 
-        List<Future<Employee>> futures = employeeIds.stream()
-                .map(id -> executorService.submit(() -> demoRepository.findById(id).orElse(null)))
-                .toList();
+        try {
+            List<Long> employeeIds = demoRepository.findAll()
+                    .stream()
+                    .map(Employee::getEmployeeId)
+                    .toList();
 
-        return futures.stream()
-                .map(future -> {
-                    try {
-                        return future.get();
-                    } catch (InterruptedException | ExecutionException e) {
-                        throw new RuntimeException("Error retrieving employee details", e);
-                    }
-                })
-                .collect(Collectors.toList());
+            List<Future<Employee>> futures = employeeIds.stream()
+                    .map(id -> executorService.submit(() -> demoRepository.findById(id).orElse(null)))
+                    .toList();
+
+            return futures.stream()
+                    .map(future -> {
+                        try {
+                            return future.get();
+                        } catch (InterruptedException | ExecutionException e) {
+                            throw new RuntimeException("Error retrieving employee details", e);
+                        }
+                    })
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            log.error("Exception occurred while fetching the list, exception message :{}", e.getMessage());
+        }
+        return  null;
     }
 
 
