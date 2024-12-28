@@ -1,8 +1,8 @@
-package com.synchrony.demo.serviceImpl;
+package com.sync.demo.serviceImpl;
 
-import com.synchrony.demo.entity.Employee;
-import com.synchrony.demo.repository.DemoRepository;
-import com.synchrony.demo.service.DemoService;
+import com.sync.demo.entity.Employee;
+import com.sync.demo.repository.DemoRepository;
+import com.sync.demo.service.DemoService;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

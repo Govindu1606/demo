@@ -1,6 +1,6 @@
-package com.synchrony.demo.service;
+package com.sync.demo.service;
 
-import com.synchrony.demo.entity.Employee;
+import com.sync.demo.entity.Employee;
 import org.reactivestreams.Publisher;
 
 import java.util.List;

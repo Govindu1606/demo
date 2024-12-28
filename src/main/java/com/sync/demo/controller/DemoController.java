@@ -1,7 +1,7 @@
-package com.synchrony.demo.controller;
+package com.sync.demo.controller;
 
-import com.synchrony.demo.entity.Employee;
-import com.synchrony.demo.service.DemoService;
+import com.sync.demo.entity.Employee;
+import com.sync.demo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

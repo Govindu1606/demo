@@ -1,4 +1,4 @@
-package com.synchrony.demo.entity;
+package com.sync.demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

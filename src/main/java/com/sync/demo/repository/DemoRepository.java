@@ -1,6 +1,6 @@
-package com.synchrony.demo.repository;
+package com.sync.demo.repository;
 
-import com.synchrony.demo.entity.Employee;
+import com.sync.demo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

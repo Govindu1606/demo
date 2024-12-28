@@ -1,9 +1,9 @@
-package com.synchrony.demo;
+package com.sync.demo;
 
-import com.synchrony.demo.controller.DemoController;
-import com.synchrony.demo.entity.Employee;
-import com.synchrony.demo.repository.DemoRepository;
-import com.synchrony.demo.service.DemoService;
+import com.sync.demo.controller.DemoController;
+import com.sync.demo.entity.Employee;
+import com.sync.demo.repository.DemoRepository;
+import com.sync.demo.service.DemoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,7 +12,6 @@ import org.reactivestreams.Publisher;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Assert;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static reactor.core.publisher.Mono.when;
